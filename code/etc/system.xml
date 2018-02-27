@@ -12,7 +12,7 @@
 		<system>
 			<groups>
 				<aoe_static>
-					<label>Varnish Configuration (Aoe_Static)</label>
+					<label>Nginx Configuration (Aoe_Static)</label>
 					<frontend_type>text</frontend_type>
 					<sort_order>200</sort_order>
 					<show_in_default>1</show_in_default>
@@ -21,7 +21,7 @@
 					<fields>
 						<cache_actions translate="label">
 							<label>Cacheable actions</label>
-							<comment><![CDATA[Commaseparated list of <b>"&lt;route&gt;_&lt;controller&gt;_&lt;action&gt;;&lt;lifeTimeInSeconds&gt;" </b> The output generated from these actions will be cached by Varnish.]]></comment>
+							<comment><![CDATA[Commaseparated list of <b>"&lt;route&gt;_&lt;controller&gt;_&lt;action&gt;;&lt;lifeTimeInSeconds&gt;" </b> The output generated from these actions will be cached by Nginx.]]></comment>
 							<frontend_type>textarea</frontend_type>
 							<sort_order>100</sort_order>
 							<show_in_default>1</show_in_default>
