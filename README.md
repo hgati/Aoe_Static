@@ -1,6 +1,6 @@
 # Nginx fastcgi_cache for Magento 1.x
 
-#### DON'T USE VARNISH(HARD TO MANAGE) FOR FULL PAGE CACHE ANYMORE !
+#### DON'T USE VARNISH (HARD TO MANAGE) FOR FULL PAGE CACHE ANYMORE !
 #### Nginx All-In-One Solution is HERE !
 
 - Nginx 1.13.9
