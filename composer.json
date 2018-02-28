@@ -2,8 +2,8 @@
     "name":"hgati/fbrnc-aoe_static",
     "type":"magento-module",
     "license":"OSL-3.0",
-    "homepage":"http://www.fabrizio-branca.de/make-your-magento-store-fly-using-varnish.html",
-    "description":"Varnish Integration for Magento.",
+    "homepage":"https://github.com/hgati/Aoe_Static",
+    "description":"Nginx fastcgi_cache integration for Magento.",
     "authors":[
         {
             "name":"hgati",
