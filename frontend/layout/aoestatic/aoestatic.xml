@@ -1,7 +1,7 @@
 <layout version="0.1.0">
 
 	<default>
-	<!--
+
 		<reference name="head">
 			<action method="addJs"><script>aoestatic/jquery-1.6.1.min.js</script></action>
 			<action method="addJs"><script>aoestatic/jquery.cookie.js</script></action>
@@ -11,12 +11,57 @@
 		<reference name="before_body_end">
 			<block type="aoestatic/beforebodyend" template="aoestatic/beforebodyend.phtml"></block>
 		</reference>
-	-->
+
 	</default>
 
 	<!-- This layout handle will only be processed if a cacheable controller action is detected (see configuration) -->
 	<!-- If you decide to replace dynamic block only in cacheable actions you can move the content of the default block in this one -->
 	<aoestatic_cacheable>
+		<reference name="header">
+
+			<!-- Replace top menu by static placeholder wrapped with placeholder information (q'n'd solution) -->
+			<action method="unsetChild"><param>topLinks</param></action>
+			<block type="aoestatic/placeholder" name="topLinks"><!-- topLinks is explicitly included in the template, so we need to call this block also "topLinks" -->
+				<action method="setPlaceholderBlockname"><param>top.links</param></action><!-- required: needs to point to the original block name -->
+				<action method="setPlaceholderId"><param>topLinks</param></action><!-- optional -->
+				<block type="core/text" name="placeholder_content">
+					<action method="setText"><param><![CDATA[]]></param></action>
+				</block>
+			</block>
+
+		</reference>
+
+		<reference name="right">
+
+			<!-- Replace cart by static placeholder wrapped with placeholder information (q'n'd solution) -->
+			<action method="unsetChild"><param>cart_sidebar</param></action>
+			<block type="aoestatic/placeholder" name="ph_cart" before="-">
+				<action method="setPlaceholderBlockname"><param>cart_sidebar</param></action><!-- required: needs to point to the original block name -->
+				<action method="setPlaceholderId"><param>cart_sidebar</param></action><!-- optional -->
+				<block type="core/text" name="placeholder_content">
+					<action method="setText"><param><![CDATA[<div class="block block-cart"><div class="block-title"><strong><span>My Cart</span></strong></div></div>]]></param></action>
+				</block>
+			</block>
+
+			<!-- Replace viewed products by static placeholder wrapped with placeholder information (q'n'd solution) -->
+			<action method="unsetChild"><param>right.reports.product.viewed</param></action>
+			<block type="aoestatic/placeholder" name="ph_viewedproducts" after="ph_cart">
+				<action method="setPlaceholderBlockname"><param>right.reports.product.viewed</param></action><!-- required: needs to point to the original block name -->
+				<action method="setPlaceholderId"><param>right_reports_product_viewed</param></action><!-- optional -->
+				<block type="core/text" name="placeholder_content">
+					<action method="setText"><param><![CDATA[<div class="block block-list block-viewed"><div class="block-title"><strong><span>Recently Viewed Products</span></strong></div></div>]]></param></action>
+				</block>
+			</block>
+
+			<!-- Other stuff -->
+			<remove name="paypal.partner.right.logo" />
+			<remove name="catalog.compare.sidebar" />
+			<remove name="right.permanent.callout" />
+			<remove name="right.poll" />
+			<remove name="right.reports.product.compared" />
+			<remove name="left.reports.product.viewed" />
+
+		</reference>
 	</aoestatic_cacheable>
 
 	<!-- This layout handle will only be processed if a not cacheable controller action is detected (see configuration) -->
