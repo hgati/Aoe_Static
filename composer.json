@@ -1,15 +1,8 @@
 {
     "name":"hgati/fbrnc-aoe_static",
     "type":"magento-module",
-    "license":"OSL-3.0",
-    "homepage":"https://github.com/hgati/Aoe_Static",
     "description":"Nginx fastcgi_cache integration for Magento.",
-    "authors":[
-        {
-            "name":"hgati",
-            "email":"cobays@gmail.com"
-        }
-    ],
+
     "require":{
         "magento-hackathon/magento-composer-installer":"*"
     }
